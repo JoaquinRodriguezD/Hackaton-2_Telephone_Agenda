@@ -2,6 +2,9 @@ package com.generatio.hackaton_2.agenda;
 
 import java.util.HashSet;
 
+import static com.generatio.hackaton_2.agenda.Contact.eliminarContacto;
+import static com.generatio.hackaton_2.agenda.Contact.modificarTelefono;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -38,10 +41,27 @@ public class Main {
 				break;
 			}
 			case 5: {
+				System.out.print("Ingrese nombre: ");
+				String nombre = scanner.nextLine();
+				System.out.print("Ingrese apellido: ");
+				String apellido = scanner.nextLine();
+				System.out.print("Ingrese teléfono: ");
+				String telefono = scanner.nextLine();
 
-				break;
+				// Creamos el contacto temporal para buscar y eliminar
+				Contact contactoAEliminar = new Contact(nombre, apellido, telefono);
+				eliminarContacto(contactoAEliminar);
+
 			}
 			case 6: {
+				System.out.print("Ingrese nombre: ");
+				String nombre = scanner.nextLine();
+				System.out.print("Ingrese apellido: ");
+				String apellido = scanner.nextLine();
+				System.out.print("Ingrese nuevo teléfono: ");
+				String nuevoTelefono = scanner.nextLine();
+
+				modificarTelefono(nombre, apellido, nuevoTelefono);
 
 				break;
 			}

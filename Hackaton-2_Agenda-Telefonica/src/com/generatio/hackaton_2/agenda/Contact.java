@@ -35,4 +35,38 @@ class Contact {
     public String toString() {
         return firstName + " " + lastName + ": " + phoneNumber;
     }
+
+    //metodo5
+    public static boolean eliminarContacto(Contact c) {
+        if (contactList.remove(c)) {
+            System.out.println("Contacto " + c.getFirstName() + " " + c.getLastName() + " eliminado correctamente.");
+            return true;
+        } else {
+            System.out.println("El contacto " + c.getFirstName() + " " + c.getLastName() + " no existe en la agenda.");
+            return false;
+        }
+    }
+    //metodo 6 modificar telefono
+    // :
+    public static void modificarTelefono(String nombre, String apellido, String nuevoTelefono) {
+        // Buscamos el contacto existente
+        Contact contactoExistente = buscarContacto(nombre, apellido);
+
+        if (contactoExistente != null) {
+            // Creamos nuevo contacto con mismo nombre/apellido pero nuevo teléfono
+            Contact nuevoContacto = new Contact(nombre, apellido, nuevoTelefono);
+
+            // Eliminamos el viejo y añadimos el nuevo
+            contactList.remove(contactoExistente);
+            contactList.add(nuevoContacto);
+            System.out.println("Teléfono actualizado correctamente para " + nombre + " " + apellido);
+        } else {
+            System.out.println("El contacto " + nombre + " " + apellido + " no existe en la agenda.");
+        }
+    }
+
 }
+
+
+
+
