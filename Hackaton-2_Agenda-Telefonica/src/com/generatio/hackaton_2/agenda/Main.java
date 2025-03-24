@@ -5,8 +5,9 @@ import java.util.HashSet;
 public class Main {
 
 	public static void main(String[] args) {
+		 HashSet<Contact> contactList = new HashSet<>();
 		/*
-		 * HashSet<Contact> contactList = new HashSet<>();
+		 *
 		 * 
 		 * contactList.add(new Contact("Juan", "Ro", "123-456-7890"));
 		 * contactList.add(new Contact("Alberto", "R", "234-567-8901"));
@@ -30,7 +31,7 @@ public class Main {
 				break;
 			}
 			case 3: {
-
+				Contact.listarContactos(contactList);
 				break;
 			}
 			case 4: {
@@ -57,10 +58,5 @@ public class Main {
 				throw new IllegalArgumentException("Opción no valida ingresada: " + option);
 			}
 		}
-
-		/*
-		 * System.out.println("Lista de contactos:"); for (Contact contact :
-		 * contactList) { System.out.println(contact); }
-		 */
 	}
 }

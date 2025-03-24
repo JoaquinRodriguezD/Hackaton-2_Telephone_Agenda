@@ -1,4 +1,5 @@
 package com.generatio.hackaton_2.agenda;
+import java.util.HashSet;
 import java.util.Objects;
 
 class Contact {
@@ -34,5 +35,15 @@ class Contact {
     @Override
     public String toString() {
         return firstName + " " + lastName + ": " + phoneNumber;
+    }
+    
+    public static void listarContactos(HashSet<Contact> contactList) {
+        System.out.println("\n--- Lista de Contactos ---");
+        if (contactList.isEmpty()) {
+            System.out.println("No hay contactos registrados");
+        } else {
+            contactList.forEach(System.out::println);
+        }
+        System.out.println("--------------------------");
     }
 }
