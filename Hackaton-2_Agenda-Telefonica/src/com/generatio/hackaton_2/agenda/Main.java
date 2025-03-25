@@ -1,26 +1,39 @@
 package com.generatio.hackaton_2.agenda;
 
 import java.util.HashSet;
+import java.util.Scanner;
 
 public class Main {
 
 	public static void main(String[] args) {
-		 HashSet<Contact> contactList = new HashSet<>();
-		/*
-		 *
-		 * 
-		 * contactList.add(new Contact("Juan", "Ro", "123-456-7890"));
-		 * contactList.add(new Contact("Alberto", "R", "234-567-8901"));
-		 * contactList.add(new Contact("Josefa", "R", "345-678-9012"));
-		 * 
-		 * contactList.add(new Contact("Juan", "R", "123-456-7890"));
-		 */
-		int option = 1;
 
+		Scanner s = new Scanner(System.in);
+		int option = 1;
+		HashSet<Contact> contactList = new HashSet<>();
+
+		contactList.add(new Contact("Juan", "Ro", "123-456-7890"));
+		contactList.add(new Contact("Alberto", "R", "234-567-8901"));
+		contactList.add(new Contact("Josefa", "R", "345-678-9012"));
+
+		contactList.add(new Contact("Juan", "R", "123-456-7890"));
+
+		System.out.println("\n--- Menú Agenda ---");
+		System.out.println("1. Añadir contacto");
+		System.out.println("2. Verificar existencia");
+		System.out.println("3. Listar contactos");
+		System.out.println("4. Buscar contacto");
+		System.out.println("5. Eliminar contacto");
+		System.out.println("6. Modificar teléfono");
+		System.out.println("7. Agenda llena");
+		System.out.println("8. Espacios libres");
+		System.out.println("0. Salir");
+		System.out.print("Opción: ");
+		
 		while (option != 0) {
-			System.out.println("Qué deseas hacer?");
-			System.out.println(
-					"1-Añadir un contacto \n2.-Verificar existencia de un contacto \n3.-Listar contactos \n4.-Busca contacto \n5.-Eliminar contacto \n6.-Modificar teléfono \n7.-Agenda llena \n8.-Espacios libres");
+
+			option = s.nextInt();
+			s.nextLine();
+
 			switch (option) {
 			case 1: {
 
@@ -35,7 +48,7 @@ public class Main {
 				break;
 			}
 			case 4: {
-
+				Contact.existeContacto(contactList, s);
 				break;
 			}
 			case 5: {
@@ -51,12 +64,13 @@ public class Main {
 				break;
 			}
 			case 0: {
-				
+				System.out.println("Saliendo del programa...");
 				break;
 			}
 			default:
-				throw new IllegalArgumentException("Opción no valida ingresada: " + option);
+				System.out.println("Opción no valida: " + option);
 			}
 		}
+		s.close();
 	}
 }

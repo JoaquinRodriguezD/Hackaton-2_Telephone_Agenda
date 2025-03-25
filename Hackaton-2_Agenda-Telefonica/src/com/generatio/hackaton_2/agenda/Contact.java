@@ -1,6 +1,7 @@
 package com.generatio.hackaton_2.agenda;
 import java.util.HashSet;
 import java.util.Objects;
+import java.util.Scanner;
 
 class Contact {
     private String firstName;
@@ -43,6 +44,30 @@ class Contact {
             System.out.println("No hay contactos registrados");
         } else {
             contactList.forEach(System.out::println);
+        }
+        System.out.println("--------------------------");
+    }
+    
+    public static void existeContacto(HashSet<Contact> contactList, Scanner s) {
+    	System.out.println("\n--- Verificar Contacto ---");
+        System.out.print("Ingrese nombre: ");
+        String firstName = s.nextLine();
+        System.out.print("Ingrese apellido: ");
+        String lastName = s.nextLine();
+        
+        boolean exists = false;
+        for (Contact c : contactList) {
+            if (c.getFirstName().equalsIgnoreCase(firstName) && 
+                c.getLastName().equalsIgnoreCase(lastName)) {
+                exists = true;
+                break;
+            }
+        }
+        
+        if (exists) {
+            System.out.println("El contacto existe en la agenda.");
+        } else {
+            System.out.println("El contacto no existe en la agenda.");
         }
         System.out.println("--------------------------");
     }
